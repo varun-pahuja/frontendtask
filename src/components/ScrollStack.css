@@ -10,6 +10,32 @@
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   will-change: scroll-position;
+  scrollbar-gutter: stable;
+}
+
+/* Custom scrollbar styling */
+.scroll-stack-scroller::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-stack-scroller::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-stack-scroller::-webkit-scrollbar-thumb {
+  background: rgba(0, 229, 255, 0.3);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.scroll-stack-scroller::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 229, 255, 0.6);
+}
+
+/* Firefox scrollbar */
+.scroll-stack-scroller {
+  scrollbar-color: rgba(0, 229, 255, 0.3) transparent;
+  scrollbar-width: thin;
 }
 
 .scroll-stack-inner {

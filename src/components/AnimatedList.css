@@ -8,6 +8,7 @@
   max-height: 400px;
   overflow-y: auto;
   padding: 16px;
+  scrollbar-gutter: stable;
 }
 
 .scroll-list::-webkit-scrollbar {
@@ -15,21 +16,23 @@
 }
 
 .scroll-list::-webkit-scrollbar-track {
-  background: #04101a;
+  background: transparent;
 }
 
 .scroll-list::-webkit-scrollbar-thumb {
-  background: rgba(0, 229, 255, 0.5);
+  background: rgba(0, 229, 255, 0.3);
   border-radius: 4px;
+  transition: background 0.2s ease;
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+.scroll-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 229, 255, 0.6);
 }
 
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* Firefox scrollbar */
+.scroll-list {
+  scrollbar-color: rgba(0, 229, 255, 0.3) transparent;
+  scrollbar-width: thin;
 }
 
 .item {
