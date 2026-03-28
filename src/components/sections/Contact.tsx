@@ -1,6 +1,13 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
+import { MailIcon, MapPinIcon, PhoneIcon } from 'lucide-react'
+
+import { Button } from '@/components/ui/button'
+import { ContactCard } from '@/components/ui/contact-card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -18,105 +25,72 @@ export default function Contact() {
   return (
     <section id="contact" className="section-padding bg-primary">
       <div className="container-max">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Content */}
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <h2 className="text-heading-2">Get In Touch</h2>
-              <p className="text-body">
-                Have questions or want to learn more about Research Quest? We'd love to hear from you. Reach out and let's build the future together.
-              </p>
-            </div>
-
-            {/* Contact Info */}
-            <div className="space-y-4 pt-8 border-t border-secondary">
-              <div className="flex gap-4">
-                <div className="text-accent-coral text-2xl flex-shrink-0">📧</div>
-                <div>
-                  <p className="font-semibold">Email</p>
-                  <a href="mailto:hello@researchquest.tech" className="text-gray-400 hover:text-accent-coral transition-colors">
-                    hello@researchquest.tech
-                  </a>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="text-accent-coral text-2xl flex-shrink-0">📍</div>
-                <div>
-                  <p className="font-semibold">Location</p>
-                  <p className="text-gray-400">Virtual Event</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="text-accent-coral text-2xl flex-shrink-0">🔗</div>
-                <div>
-                  <p className="font-semibold">Follow Us</p>
-                  <div className="flex gap-3 mt-2">
-                    {['Twitter', 'LinkedIn', 'Discord'].map((social) => (
-                      <a
-                        key={social}
-                        href="#"
-                        className="text-gray-400 hover:text-accent-coral transition-colors font-semibold text-sm"
-                      >
-                        {social}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Form */}
-          <form onSubmit={handleSubmit} className="space-y-6 bg-secondary rounded-2xl p-8 border border-secondary/50">
-            <div>
-              <label htmlFor="name" className="block font-semibold mb-2">
-                Full Name
-              </label>
-              <input
+        <ContactCard
+          className="border-cyan-400/35 bg-slate-950/90 text-cyan-50 shadow-[0_0_30px_rgba(0,229,255,0.12)]"
+          formSectionClassName="border-cyan-400/25 bg-cyan-950/20"
+          title="Get in touch"
+          description="Have questions or want to learn more about Research Quest? Fill out the form and we will respond within one business day."
+          contactInfo={[
+            {
+              icon: MailIcon,
+              label: 'Email',
+              value: 'hello@researchquest.tech',
+            },
+            {
+              icon: PhoneIcon,
+              label: 'Phone',
+              value: '+1 (555) 903-2048',
+            },
+            {
+              icon: MapPinIcon,
+              label: 'Address',
+              value: 'Global Virtual Hackathon',
+              className: 'md:col-span-2 lg:col-span-1',
+            },
+          ]}
+        >
+          <form onSubmit={handleSubmit} className="w-full space-y-4">
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="name">Name</Label>
+              <Input
                 id="name"
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 bg-primary border border-secondary rounded-lg focus:border-accent-coral focus:outline-none transition-colors"
                 placeholder="Your name"
                 required
               />
             </div>
 
-            <div>
-              <label htmlFor="email" className="block font-semibold mb-2">
-                Email Address
-              </label>
-              <input
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
                 id="email"
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 bg-primary border border-secondary rounded-lg focus:border-accent-coral focus:outline-none transition-colors"
-                placeholder="your@email.com"
+                placeholder="you@example.com"
                 required
               />
             </div>
 
-            <div>
-              <label htmlFor="message" className="block font-semibold mb-2">
-                Message
-              </label>
-              <textarea
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="message">Message</Label>
+              <Textarea
                 id="message"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 bg-primary border border-secondary rounded-lg focus:border-accent-coral focus:outline-none transition-colors resize-none h-32"
-                placeholder="Your message..."
+                className="min-h-[120px]"
+                placeholder="How can we help you?"
                 required
               />
             </div>
 
-            <button type="submit" className="btn-primary w-full">
+            <Button type="submit" className="w-full">
               Send Message
-            </button>
+            </Button>
           </form>
-        </div>
+        </ContactCard>
       </div>
     </section>
   )

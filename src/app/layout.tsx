@@ -1,9 +1,21 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Geist } from "next/font/google";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { cn } from "@/lib/utils";
+import ClickSpark from "@/components/ClickSpark";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const dxLactos = localFont({
+  src: '../assets/fonts/DxLactos-Medium.otf',
+  variable: '--font-dx-lactos',
+  display: 'swap',
+});
+const magtis = localFont({
+  src: '../assets/fonts/Magtis-ExtraBold.otf',
+  variable: '--font-magtis',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Research Quest - Hackathon Platform',
@@ -23,9 +35,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
-      <body className="bg-primary text-white antialiased">
-        {children}
+    <html lang="en" className={cn("font-sans", inter.variable, dxLactos.variable, magtis.variable)}>
+      <body className="bg-primary text-white antialiased min-h-screen">
+        <ClickSpark
+          sparkColor="#00e5ff"
+          sparkSize={12}
+          sparkRadius={20}
+          sparkCount={10}
+          duration={450}
+          easing="ease-out"
+          extraScale={1.1}
+        >
+          {children}
+        </ClickSpark>
       </body>
     </html>
   )

@@ -1,5 +1,7 @@
 'use client'
 
+import AnimatedList from '@/components/AnimatedList'
+
 export default function Timeline() {
   const events = [
     {
@@ -40,42 +42,34 @@ export default function Timeline() {
     },
   ]
 
+  const timelineItems = events.map(
+    (event) => `${event.date} | ${event.title} | ${event.description}`
+  )
+
   return (
-    <section id="timeline" className="section-padding bg-secondary">
+    <section id="timeline" className="section-padding bg-secondary relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />
       <div className="container-max">
-        <div className="space-y-12">
+        <div className="space-y-12 relative z-10">
           {/* Section Header */}
           <div className="space-y-4">
-            <h2 className="text-heading-2">Event Timeline</h2>
+            <h2 className="text-heading-2 font-display uppercase tracking-wide">Event Timeline</h2>
             <p className="text-body max-w-2xl">
-              Mark your calendar. Here's what to expect throughout the hackathon.
+              Mark your calendar. Here is what to expect throughout the hackathon.
             </p>
           </div>
 
-          {/* Timeline */}
-          <div className="space-y-8">
-            {events.map((event, index) => (
-              <div key={event.id} className="relative flex gap-6 md:gap-8">
-                {/* Timeline node */}
-                <div className="flex flex-col items-center">
-                  <div className="w-4 h-4 rounded-full bg-accent-coral relative z-10 flex-shrink-0" />
-                  {index !== events.length - 1 && (
-                    <div className="w-0.5 h-20 bg-gradient-to-b from-accent-coral to-transparent mt-2" />
-                  )}
-                </div>
-
-                {/* Event content */}
-                <div className="pb-8 flex-1">
-                  <div className="bg-primary rounded-xl p-6 border border-secondary hover:border-accent-coral transition-all duration-300">
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-lg font-bold">{event.title}</h3>
-                      <span className="text-sm text-accent-coral font-semibold">{event.date}</span>
-                    </div>
-                    <p className="text-gray-400">{event.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          {/* Timeline as Animated List */}
+          <div className="timeline-animated-list-wrapper w-full">
+            <AnimatedList
+              items={timelineItems}
+              className="timeline-animated-list w-full"
+              itemClassName="timeline-animated-item"
+              showGradients={false}
+              enableArrowNavigation
+              displayScrollbar={false}
+              initialSelectedIndex={0}
+            />
           </div>
         </div>
       </div>

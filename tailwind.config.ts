@@ -27,8 +27,8 @@ const config: Config = {
         secondary: '#1a1a1a',
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-dx-lactos)', 'var(--font-sans)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-magtis)', 'var(--font-sans)', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-dark': 'linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%)',

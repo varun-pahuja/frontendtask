@@ -1,5 +1,7 @@
 'use client'
 
+import ScrollStack, { ScrollStackItem } from '@/components/ScrollStack'
+
 export default function About() {
   const features = [
     {
@@ -35,31 +37,42 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="section-padding bg-secondary">
+    <section id="about" className="section-padding bg-secondary relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />
       <div className="container-max">
-        <div className="space-y-12">
+        <div className="space-y-12 relative z-10">
           {/* Section Header */}
           <div className="space-y-4">
-            <h2 className="text-heading-2">What Can Get?</h2>
+            <h2 className="text-heading-2 font-display uppercase tracking-wide">
+              What You Can Get
+            </h2>
             <p className="text-body max-w-2xl">
               Join a vibrant community of researchers and innovators. Gain experience, build your network, and make an impact.
             </p>
           </div>
 
-          {/* Feature Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="p-6 bg-primary rounded-xl border border-secondary hover:border-accent-coral transition-all duration-300 hover:shadow-lg hover:shadow-accent-coral/20 group"
-              >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {feature.icon}
-                </div>
-                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-400 text-sm">{feature.description}</p>
-              </div>
-            ))}
+          {/* Scroll Stack */}
+          <div className="h-[72vh] md:h-[78vh]">
+            <ScrollStack
+              className="about-stack"
+              itemDistance={90}
+              itemScale={0.03}
+              itemStackDistance={28}
+              stackPosition="18%"
+              scaleEndPosition="8%"
+              baseScale={0.86}
+              rotationAmount={0.6}
+              blurAmount={0.4}
+              useWindowScroll={false}
+            >
+              {features.map((feature) => (
+                <ScrollStackItem key={feature.title} itemClassName="about-stack-card">
+                  <div className="about-stack-icon">{feature.icon}</div>
+                  <h3 className="about-stack-title">{feature.title}</h3>
+                  <p className="about-stack-description">{feature.description}</p>
+                </ScrollStackItem>
+              ))}
+            </ScrollStack>
           </div>
         </div>
       </div>

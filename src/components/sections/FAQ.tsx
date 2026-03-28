@@ -33,14 +33,17 @@ export default function FAQ() {
   ]
 
   return (
-    <section id="faq" className="section-padding bg-secondary">
+    <section id="faq" className="section-padding bg-primary relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />
       <div className="container-max">
-        <div className="space-y-12 max-w-3xl mx-auto">
+        <div className="space-y-12 max-w-3xl mx-auto relative z-10">
           {/* Section Header */}
           <div className="space-y-4 text-center">
-            <h2 className="text-heading-2">Frequently Asked Questions</h2>
-            <p className="text-body">
-              Have questions? We've got answers. Can't find what you're looking for? Reach out to us directly.
+            <h2 className="text-heading-2 font-display uppercase tracking-wide heading-glow">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-body max-w-2xl mx-auto">
+              Have questions? We&apos;ve got answers. Can&apos;t find what you&apos;re looking for? Reach out to us directly.
             </p>
           </div>
 
@@ -49,15 +52,15 @@ export default function FAQ() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="border border-secondary rounded-xl overflow-hidden hover:border-accent-coral transition-colors duration-300"
+                className="rounded-xl overflow-hidden border border-cyan-400/25 bg-zinc-950/45 hover:border-cyan-300/50 transition-colors duration-300"
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
-                  className="w-full px-6 py-4 flex items-center justify-between hover:bg-secondary/50 transition-colors duration-200"
+                  className="w-full px-6 py-4 flex items-center justify-between hover:bg-cyan-500/10 transition-colors duration-200"
                 >
-                  <h3 className="font-semibold text-left">{faq.question}</h3>
+                  <h3 className="font-semibold text-left text-cyan-50">{faq.question}</h3>
                   <svg
-                    className={`w-5 h-5 text-accent-coral flex-shrink-0 ml-4 transition-transform duration-300 ${
+                    className={`w-5 h-5 text-cyan-300 flex-shrink-0 ml-4 transition-transform duration-300 ${
                       openIndex === index ? 'rotate-180' : ''
                     }`}
                     fill="none"
@@ -74,7 +77,7 @@ export default function FAQ() {
                 </button>
 
                 {openIndex === index && (
-                  <div className="px-6 py-4 bg-primary/50 border-t border-secondary text-gray-400">
+                  <div className="px-6 py-4 bg-cyan-950/20 border-t border-cyan-400/20 text-cyan-100/85">
                     {faq.answer}
                   </div>
                 )}

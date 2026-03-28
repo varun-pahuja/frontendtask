@@ -1,24 +1,39 @@
 'use client'
 
+import { ArrowUpRight } from 'lucide-react'
+
+import { Button } from '@/components/ui/button'
+import {
+  CardCurtain,
+  CardCurtainReveal,
+  CardCurtainRevealBody,
+  CardCurtainRevealDescription,
+  CardCurtainRevealFooter,
+  CardCurtainRevealTitle,
+} from '@/components/ui/card-curtain-reveal'
+
 export default function Prizes() {
   const prizes = [
     {
-      position: '🥇 1st Place',
+      position: '1st Place',
       amount: '$10,000',
       rewards: ['Prize money', 'Internship offer', 'Mentorship', 'Portfolio boost'],
-      highlighted: true,
+      image:
+        'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2060&auto=format&fit=crop',
     },
     {
-      position: '🥈 2nd Place',
+      position: '2nd Place',
       amount: '$6,000',
       rewards: ['Prize money', 'Internship offer', 'Mentorship', 'Portfolio boost'],
-      highlighted: false,
+      image:
+        'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2069&auto=format&fit=crop',
     },
     {
-      position: '🥉 3rd Place',
+      position: '3rd Place',
       amount: '$3,000',
       rewards: ['Prize money', 'Internship offer', 'Mentorship', 'Portfolio boost'],
-      highlighted: false,
+      image:
+        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2070&auto=format&fit=crop',
     },
   ]
 
@@ -34,42 +49,50 @@ export default function Prizes() {
             </p>
           </div>
 
-          {/* Prize Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {prizes.map((prize, index) => (
-              <div
+              <CardCurtainReveal
                 key={index}
-                className={`rounded-2xl overflow-hidden transition-all duration-300 ${
-                  prize.highlighted
-                    ? 'md:scale-105 border-2 border-accent-coral bg-secondary'
-                    : 'border border-secondary bg-secondary/50 hover:bg-secondary/80'
-                }`}
+                className="h-[520px] border border-cyan-300/35 bg-zinc-950 text-zinc-50 shadow-[0_0_24px_rgba(0,229,255,0.16)]"
               >
-                <div className={`p-8 space-y-6 ${prize.highlighted ? 'bg-gradient-accent/10' : ''}`}>
-                  {/* Position */}
-                  <div className="space-y-2">
-                    <h3 className="text-2xl font-bold">{prize.position}</h3>
-                    <p className={`text-3xl font-bold ${prize.highlighted ? 'text-accent-coral' : ''}`}>
-                      {prize.amount}
-                    </p>
+                <CardCurtainRevealBody className="relative z-10">
+                  <CardCurtainRevealTitle className="font-display text-3xl font-medium tracking-tight text-cyan-200">
+                    {prize.position}
+                    <br />
+                    <span className="text-cyan-300">{prize.amount}</span>
+                  </CardCurtainRevealTitle>
+
+                  <CardCurtainRevealDescription className="my-4">
+                    <ul className="space-y-2 text-sm text-cyan-50/90">
+                      {prize.rewards.map((reward, idx) => (
+                        <li key={idx} className="flex items-center gap-2">
+                          <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" />
+                          {reward}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardCurtainRevealDescription>
+
+                  <div className="mt-4 flex">
+                    <Button variant="secondary" size="icon" className="aspect-square rounded-full">
+                      <ArrowUpRight />
+                    </Button>
                   </div>
 
-                  {/* Rewards */}
-                  <ul className="space-y-3">
-                    {prize.rewards.map((reward, idx) => (
-                      <li key={idx} className="flex items-center gap-3 text-gray-300">
-                        <span className="w-2 h-2 rounded-full bg-accent-coral" />
-                        {reward}
-                      </li>
-                    ))}
-                  </ul>
+                  <CardCurtain className="bg-cyan-50" />
+                </CardCurtainRevealBody>
 
-                  {/* Button */}
-                  <button className={prize.highlighted ? 'btn-primary w-full' : 'btn-secondary w-full'}>
-                    Apply Now
-                  </button>
-                </div>
-              </div>
+                <CardCurtainRevealFooter className="mt-auto h-[220px]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    width="100%"
+                    height="100%"
+                    alt={`${prize.position} visual`}
+                    src={prize.image}
+                    className="h-full w-full object-cover"
+                  />
+                </CardCurtainRevealFooter>
+              </CardCurtainReveal>
             ))}
           </div>
         </div>
