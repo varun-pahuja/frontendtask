@@ -63,7 +63,7 @@ export function BottomNavBar({
               "flex items-center gap-0 px-3 py-2 rounded-full transition-colors duration-200 relative h-10 min-w-[44px] min-h-[40px] max-h-[44px]",
               isActive
                 ? "bg-cyan-400/15 text-cyan-300 gap-2"
-                : "bg-transparent text-gray-300 hover:bg-cyan-400/10",
+                : "bg-transparent text-cyan-100/70 hover:bg-cyan-400/10 hover:text-cyan-200",
               "focus:outline-none focus-visible:ring-0",
             )}
             href={item.href}
