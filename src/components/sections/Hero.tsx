@@ -47,7 +47,7 @@ export default function Hero() {
         <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mx-auto mb-8" />
 
         {/* Tagline */}
-        <p className="text-base md:text-lg text-gray-300 max-w-xl mx-auto leading-relaxed mb-12 font-light">
+        <p className="text-base md:text-lg text-cyan-100/80 max-w-xl mx-auto leading-relaxed mb-12 font-light">
           Build real-world AI solutions, team up with top innovators, and ship your ideas into impact.
         </p>
 
@@ -57,7 +57,7 @@ export default function Hero() {
         </button>
 
         {/* Scroll Indicator */}
-        <div className="mt-16 flex flex-col items-center gap-2 text-gray-400 text-sm">
+        <div className="mt-16 flex flex-col items-center gap-2 text-cyan-100/70 text-sm">
           <span>MEET OUR PARTNERS</span>
           <div className="w-0.5 h-8 bg-gradient-to-b from-cyan-400 to-transparent animate-pulse" />
         </div>

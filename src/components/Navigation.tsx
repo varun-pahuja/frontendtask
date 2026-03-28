@@ -30,7 +30,7 @@ const Navigation = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-300 hover:text-accent-coral transition-colors duration-300"
+                className="text-cyan-100/80 hover:text-cyan-300 transition-colors duration-300"
               >
                 {link.label}
               </Link>
@@ -79,7 +79,7 @@ const Navigation = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block px-4 py-2 text-gray-300 hover:text-accent-coral hover:bg-secondary rounded transition-colors duration-300"
+                className="block px-4 py-2 text-cyan-100/80 hover:text-cyan-300 hover:bg-cyan-500/10 rounded transition-colors duration-300"
               >
                 {link.label}
               </Link>

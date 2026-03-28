@@ -19,9 +19,9 @@ const config: Config = {
           900: '#0f0f0f',
         },
         accent: {
-          coral: '#FF6B5B',
-          coral_hover: '#FF5244',
-          coral_light: '#FF8B7D',
+          coral: '#00E5FF',
+          coral_hover: '#6DEBFF',
+          coral_light: '#A8F4FF',
         },
         primary: '#0f0f0f',
         secondary: '#1a1a1a',
@@ -32,7 +32,7 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-dark': 'linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%)',
-        'gradient-accent': 'linear-gradient(135deg, #FF6B5B 0%, #FF5244 100%)',
+        'gradient-accent': 'linear-gradient(135deg, #00E5FF 0%, #2CB8FF 100%)',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-in-out',
@@ -49,8 +49,8 @@ const config: Config = {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         glow: {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(255, 107, 91, 0.3)' },
-          '50%': { boxShadow: '0 0 40px rgba(255, 107, 91, 0.6)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(0, 229, 255, 0.3)' },
+          '50%': { boxShadow: '0 0 40px rgba(0, 229, 255, 0.6)' },
         },
       },
     },

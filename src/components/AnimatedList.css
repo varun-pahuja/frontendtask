@@ -15,11 +15,11 @@
 }
 
 .scroll-list::-webkit-scrollbar-track {
-  background: #060010;
+  background: #04101a;
 }
 
 .scroll-list::-webkit-scrollbar-thumb {
-  background: #271e37;
+  background: rgba(0, 229, 255, 0.5);
   border-radius: 4px;
 }
 
@@ -34,17 +34,17 @@
 
 .item {
   padding: 16px;
-  background-color: #170d27;
+  background-color: rgba(0, 11, 20, 0.8);
   border-radius: 8px;
   margin-bottom: 1rem;
 }
 
 .item.selected {
-  background-color: #271e37;
+  background-color: rgba(0, 229, 255, 0.12);
 }
 
 .item-text {
-  color: white;
+  color: rgba(209, 250, 255, 0.94);
   margin: 0;
 }
 
